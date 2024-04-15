@@ -29,8 +29,6 @@ public class ParkingSpot {
     public void vacate() {
         occupied = false;
     }
-
-    // todo: add getDescription method with using StringBuilder
     @Override
     public String toString() {
         return "ParkingSpot{" +
