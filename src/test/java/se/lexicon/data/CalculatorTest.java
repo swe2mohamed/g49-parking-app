@@ -1,6 +1,7 @@
-package se.lexicon;
+package se.lexicon.data;
 
 import org.junit.jupiter.api.Test;
+import se.lexicon.Calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
