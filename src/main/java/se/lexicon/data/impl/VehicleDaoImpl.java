@@ -41,4 +41,16 @@ public class VehicleDaoImpl implements VehicleDao {
     public Collection<Vehicle> findAll() {
         return new ArrayList<>(storage);
     }
-}
+
+    @Override
+    public void update(Vehicle vehicle) {
+        if (vehicle  == null) throw new IllegalArgumentException("Vehicle Data is null.");
+        Optional <Vehicle> existingVehicleOptional = find(vehicle.getLicensePlate());
+        if (!existingVehicleOptional.isPresent()) throw new IllegalArgumentException("License Plate not found");
+        Vehicle existingVehicle = existingVehicleOptional.get();
+        int index = storage.indexOf(existingVehicle);
+        storage.set(index, vehicle);
+        }
+    }
+
+

@@ -78,4 +78,18 @@ public class VehicleDaoImplTest {
     public void testRemoveNonExistingVehicle(){
         assertFalse(vehicleDao.remove("ABC123"));
     }
+
+    // 7. testUpdate
+    @Test
+    public void testUpdate(){
+        Vehicle originalVehicle = new Vehicle("ABC123", VehicleType.CAR);
+        vehicleDao.create(originalVehicle);
+
+        Vehicle updateVehicle = new Vehicle("ABC123", VehicleType.TRUCK);
+        vehicleDao.update(updateVehicle);
+
+        Optional<Vehicle> result = vehicleDao.find("ABC123");
+        assertTrue(result.isPresent());
+        assertEquals(result.get().getType(),VehicleType.TRUCK);
+    }
 }

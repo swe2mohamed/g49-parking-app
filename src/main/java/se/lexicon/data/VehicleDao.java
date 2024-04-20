@@ -16,4 +16,6 @@ public interface VehicleDao {
     boolean remove(String licensePlate);
 
     Collection<Vehicle> findAll();
+
+    void update(Vehicle vehicle);
 }
